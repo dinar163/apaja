@@ -1,0 +1,24 @@
+/* =====================================================================
+   DINAR FOOTBALL — Website + Panel Admin (single file, zero dependency)
+   Jalankan:  node dinar.js
+   Website :  http://localhost:3000
+   Admin   :  http://localhost:3000/admin  (admin / dinar123)
+   ===================================================================== */
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+
+const PORT = process.env.PORT || 3000;
+const ADMIN_USER = process.env.ADMIN_USER || "admin";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "dinar123";
+const DATA_FILE = path.join(__dirname, "dinar-data.json");
+
+/* ----------------------------- DATA DEFAULT ----------------------------- */
+const DEFAULT_DATA = {
+  brand: { short: "DF", name: "DINAR", sub: "FOOTBALL", serverLabel: "Official Server", year: "2026", owner: "SiDinar" },
+  hero: {
+    title1: "DINAR", title2: "FOOT", title3: "BALL",
+    description: "DINAR FOOTBALL adalah game sepak bola Android resmi dari Dinar Community dengan fitur free all assets (pemain, koin, GP), mode mabar 1v1, push divisi, dan gameplay offline seru.",
+    badges: ["✔ Official Build", "arm64-v8a", "Base APK 72 MB", "Full Game ~3 GB"],
+    cardTitle: "PLAYER CARDS", cardSub: "
